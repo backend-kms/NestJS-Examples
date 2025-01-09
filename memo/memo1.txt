@@ -1,0 +1,21 @@
+로직 흐름
+브라우저(클라이언트) -> localhost:3000/ GET 요청 -> main -> module -> 이거에 맞는 Controller -> Service
+
+모듈 생성
+nest g module 모듈명
+> nest: using nestcli
+> g: generate
+> module: schematic that i want to create
+
+컨트롤러 생성
+nest g controller 컨트롤러명 --no-spec
+
+서비스 생성
+nest g service 서비스명 --no-spec
+
+정리
+클라이언트 -> 요청 -> 컨트롤러 -> 알맞은 요청 경로에 라우팅 -> 핸들러 -> 서비스 -> 로직을 처리해서 컨트롤러에 보내 값을 리턴 -> 그 결과를 클라이언트로
+즉, 컨트롤러에서는 요청을 처리하고 결과값을 리턴을 해주는 역할을 함
+
+uuid 모듈 설치
+npm install uuid --save
