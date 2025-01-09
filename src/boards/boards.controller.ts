@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { BoardsService } from './boards.service';
 import { Board } from './boards.model';
 import { createBoardDto } from './dto/create-board.dto';
@@ -24,4 +24,9 @@ export class BoardsController {
         return this.boardsService.getBoardById(id)
     }
 
+    @Delete('/:id')
+    deleteBoard(@Param('id') id: string) {
+        return `${this.boardsService.deleteBoard(id)}의 데이터가 삭제가 완료되었습니다.`;
+    }
 }
+
