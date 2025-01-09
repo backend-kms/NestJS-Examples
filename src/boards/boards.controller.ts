@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { BoardsService } from './boards.service';
 import { Board } from './boards.model';
 import { createBoardDto } from './dto/create-board.dto';
+import { ApiOkResponse } from '@nestjs/swagger';
 
 @Controller('boards')
 export class BoardsController {

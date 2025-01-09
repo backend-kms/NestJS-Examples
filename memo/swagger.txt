@@ -1,0 +1,19 @@
+Swagger 적용법
+1. 설치
+npm install @nestjs/swagger swagger-ui-express
+2. main.ts 수정
+SwaggerModule 클래스를 사용하여 Swagger 설정 초기화
+
+https://cdragon.tistory.com/entry/NestJS-NestJS%EC%97%90%EC%84%9C-Swagger-%EC%82%AC%EC%9A%A9%EB%B2%95-feat-API-Documentation 참고
+
+
+수정 전 nest-cli.json
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true
+  }
+  
+}
