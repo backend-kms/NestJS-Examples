@@ -32,4 +32,10 @@ export class BoardsService {
         this.boards = this.boards.filter((board) => board.id !== id);
         return id;
     }
+
+    updateBoardStatus(id: string, status: BoardStatus) {
+        const board = this.getBoardById(id);
+        board.status = status;
+        return board;
+    }
 }

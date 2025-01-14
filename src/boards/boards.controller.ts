@@ -1,14 +1,16 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
 import { BoardsService } from './boards.service';
-import { Board } from './boards.model';
+import { Board, BoardStatus } from "./boards.model";
 import { createBoardDto } from './dto/create-board.dto';
-import { ApiOkResponse } from '@nestjs/swagger';
+import { ApiTags, ApiOperation} from '@nestjs/swagger'
 
+@ApiTags('보드 API')
 @Controller('boards')
 export class BoardsController {
     constructor(private boardsService: BoardsService) { }
 
     @Get('/')
+    @ApiOperation({summary: "목록 조회"})
     getAllBoard(): Board[] {
         return this.boardsService.getAllBoards();
     }
@@ -28,6 +30,11 @@ export class BoardsController {
     @Delete('/:id')
     deleteBoard(@Param('id') id: string) {
         return `${this.boardsService.deleteBoard(id)}의 데이터가 삭제가 완료되었습니다.`;
+    }
+
+    @Patch('/:id/status')
+    updateBoardStatus(@Param('id') id: string, @Body('status') status: BoardStatus): Board {
+        return this.boardsService.updateBoardStatus(id, status)
     }
 }
 
